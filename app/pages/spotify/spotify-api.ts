@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import MyApp from '../../app.ts';
 import {NavController} from 'ionic-angular';
-import {TestInfo} from '../list/list';
+import {LocalDb} from '../local-db/local-db';
 import {SpotifyService} from '../../providers/spotify-service/spotify-service.ts';
 
 // import placeholder from './reactionic.png';
@@ -11,6 +11,7 @@ import {SpotifyService} from '../../providers/spotify-service/spotify-service.ts
   providers: [SpotifyService]
 })
 export class Spotify{
+    localDb=LocalDb;
     public artist: Array<any>;
     public image: Array<any>;
 
