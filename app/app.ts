@@ -20,16 +20,6 @@ export default class MyApp {
     public menu: MenuController
   ) {
     this.initializeApp();
-
-    // set our app's pages
-    this.pages = [
-      { title: 'My First List', component: TestInfo },
-      { title: 'Test Home', component: ReactIonic },
-      { title: 'Test Intro', component: TestInfo },
-      { title: 'My First List', component: TestInfo },
-
-
-    ];
   }
 
   initializeApp() {
