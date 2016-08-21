@@ -1,23 +1,19 @@
-<ion-header>
-  <ion-navbar>
-    <button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>My First List</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
+<ion-content class="testContainer">
+  <div class="testingDevice">
+    Testing Your Device
   </div>
+  <div class="testInfo">
+    For best test results, the test should be conducted in the same location
+    using the same network. Using your Wifi connection is recommended as it is the more stable then
+    your mobile network. The tests should also be conducted in succession of one another
+    to best simulate a controlled enviroment.
+  </div>
+  <div class="networkImage"></div>
+  <div class="beginTest">
+    <button [navPush]="spotify">
+      Begin RN Test
+    </button>
+  </div>
+
 </ion-content>
