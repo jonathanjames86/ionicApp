@@ -5,13 +5,18 @@
     <div class="spotifySearch">
       <label class="item item-input">
         <i class="icon ion-search placeholder-icon"></i>
-        <input type="search" placeholder="Search">
+        <ion-input type="search" placeholder="Search" (input)="searchArtist($event)"></ion-input>
       </label>
-    </div>
-  <div class="versus">
-    Which hybrid best fits your project?
-  </div>
 
+    </div>
+    <ion-list>
+      <div *ngFor="let singer of artist">
+          <!-- <ion-avatar  item-left>
+              <img src="{{singer.images[0].url}}" alt="album">
+          </ion-avatar> -->
+              <p class="item-description">{{singer.name}}</p>
+      </div>
+  </ion-list>
   <button [navPush]="testInfo">Test you device</button>
 
 

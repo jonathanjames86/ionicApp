@@ -2,7 +2,7 @@
   background-color: #0E0F1A;
   color: #fff;
   font-weight: lighter;
-  height: 100vh;
+  height: 100%;
   .testingSpotify{
     display: flex;
     align-items: center;
@@ -22,11 +22,16 @@
     margin-bottom: 1.5rem;
     margin-top: 1rem;
   }
-  input{
+  ion-input{
     height: 4rem;
     width: 95%;
     margin: auto;
-  },
+    color: #0E0F1A;
+    background-color: #fff;
+  }
+  .item-description{
+    color: #fff;
+  }
   .beginTest{
     position: static;
     width: 100vw;
