@@ -10,7 +10,10 @@
 <ion-content padding>
 
   <button (click)="takePicture()">Take a Picture</button>
-  Latest Picture:
-      <img [src]="base64Image" *ngIf="base64Image" />
+  Latest Picture: <img [src]="base64Image" *ngIf="base64Image" />
+    <!-- <ion-buttons end> -->
+      <!-- <button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
+    </ion-buttons>
+    <div #map id="map"></div> -->
   <button [navPush]="animation">Test you device</button>
 </ion-content>
