@@ -42,6 +42,7 @@ gulp.task('watch', ['clean'], function(done){
     function(){
       gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
       gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
+      gulpWatch('app/**/*.png', function(){ gulp.start('images'); });
       buildBrowserify({ watch: true }).on('end', done);
     }
   );
@@ -70,5 +71,9 @@ gulp.task('fonts', copyFonts);
 gulp.task('scripts', copyScripts);
 gulp.task('clean', function(){
   return del('www/build');
+});
+gulp.task('images', function() {
+    gulp.src('app/**/**/*.png')
+    .pipe(gulp.dest('www/build'))
 });
 gulp.task('lint', tslint);

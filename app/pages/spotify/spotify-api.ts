@@ -4,7 +4,9 @@ import {NavController} from 'ionic-angular';
 import {LocalDb} from '../local-db/local-db';
 import {SpotifyService} from '../../providers/spotify-service/spotify-service.ts';
 
-// import placeholder from './reactionic.png';
+
+
+import './reactionic.png';
 
 @Component({
   templateUrl: 'build/pages/spotify/spotify-api.html',
@@ -24,7 +26,6 @@ export class Spotify{
             this.spotifyService.searchArtist(event.target.value).subscribe(
                 data => {
                     this.artist = data.artists.items;
-                    console.log(data.artists.items);
                 },
                 err => {console.log(err);},
                 () => console.log('Artist Search Complete')
