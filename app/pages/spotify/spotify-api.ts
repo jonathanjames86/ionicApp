@@ -8,7 +8,7 @@ import {SpotifyService} from '../../providers/spotify-service/spotify-service.ts
 
 @Component({
   templateUrl: 'build/pages/spotify/spotify-api.html',
-  providers: [SpotifyService]
+  providers: [SpotifyService],
 })
 export class Spotify{
     localDb=LocalDb;

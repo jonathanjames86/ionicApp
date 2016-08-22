@@ -1,18 +1,16 @@
-<!--
-  Generated template for the LocalDbPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>localDb</ion-title>
+    <ion-title>Native API Test</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <button (click)="takePicture()">Take a Picture</button>
+  Latest Picture:
+      <img [src]="base64Image" *ngIf="base64Image" />
   <button [navPush]="animation">Test you device</button>
 </ion-content>
