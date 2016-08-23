@@ -33,7 +33,6 @@ export class LocalDb {
       }
       this.map = new google.maps.Map(document.querySelector("#map"), mapOptions);
       var x = document.querySelector("#map");
-      console.log(x);
     }, (err) => {
       console.log(err);
     });

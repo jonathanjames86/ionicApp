@@ -1,21 +1,26 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Native API Tests</ion-title>
+  <div class="nativeNav">
+    <ion-title class="nativeTitle">Native API Tests</ion-title>
     <ion-nav-items secondary>
-      <button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
-      <button [navPush]="animation">Test you device</button>
+
+
     </ion-nav-items>
-  </ion-navbar>
+  </div>
 
 </ion-header>
 
 
 <ion-content class="map">
+    <button (click)="addMarker()"><ion-icon name="add"></ion-icon>Google Maps</button>
 
-  <!-- <button (click)="takePicture()">Take a Picture</button>
-  Latest Picture: <img [src]="base64Image" *ngIf="base64Image" /> -->
+    <div id="map"></div>
 
-    <div id="map" style="height: 300px"></div>
+    <div class="nativeNav">
+        <button (click)="takePicture()">Access Camera</button>
 
+          <img [src]="base64Image" *ngIf="base64Image" />
+    </div>
+
+      <button [navPush]="animation">Test you device</button>
 </ion-content>
