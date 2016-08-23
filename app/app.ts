@@ -1,8 +1,11 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, enableProdMode} from '@angular/core';
 import {ionicBootstrap, App, Platform, MenuController, Nav} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {ReactIonic} from './pages/hello-ionic/hello-ionic';
 import {TestInfo} from './pages/list/list';
+
+
+enableProdMode();
 
 
 @Component({

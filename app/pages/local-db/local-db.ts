@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, Platform, Loading } from 'ionic-angular';
 import { Animation } from '../animation/animation'
 import { Camera, Geolocation } from 'ionic-native';
 
@@ -14,16 +14,21 @@ declare var google;
 export class LocalDb {
 
   @ViewChild('map') mapElement: ElementRef;
-  map: any;
+  private map: any;
+  private google: any;
+  private markers = [];
   animation = Animation;
   public base64Image: string;
+
   constructor(private navCtrl: NavController) {
+    this.map = null;
     this.loadMap();
   }
-//
-//   ///Using Geolocation to find current Position
+
+  //Using Geolocation to find current Position
   loadMap(){
     let options = {timeout: 10000, enableHighAccuracy: true};
+
     Geolocation.getCurrentPosition(options).then((position) => {
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       let mapOptions = {
