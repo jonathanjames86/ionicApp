@@ -20,13 +20,15 @@ export class LocalDb {
   animation = Animation;
   public base64Image: string;
 
-  constructor(private navCtrl: NavController) {
+  constructor(private platform: Platform, navCtrl: NavController) {
     this.map = null;
     this.loadMap();
+    this.platform = platform;
   }
 
   //Using Geolocation to find current Position
   loadMap(){
+    this.platform.ready().then(() => {
     let options = {timeout: 10000, enableHighAccuracy: true};
 
     Geolocation.getCurrentPosition(options).then((position) => {
@@ -38,10 +40,12 @@ export class LocalDb {
       }
       this.map = new google.maps.Map(document.querySelector("#map"), mapOptions);
       var x = document.querySelector("#map");
-    }, (err) => {
-      console.log(err);
+    },
+    (err) => {console.log(err);
     });
-  }
+  })
+}
+
   addMarker(){
   let marker = new google.maps.Marker({
     map: this.map,
