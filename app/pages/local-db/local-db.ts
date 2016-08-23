@@ -15,49 +15,47 @@ export class LocalDb {
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-
   animation = Animation;
   public base64Image: string;
   constructor(private navCtrl: NavController) {
-
+    this.loadMap();
   }
 //
-//   ionViewLoaded(){
-//     this.loadMap();
-//   }
-//
 //   ///Using Geolocation to find current Position
-//   loadMap(){
-//     Geolocation.getCurrentPosition().then((position) => {
-//       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-//       let mapOptions = {
-//         center: latLng,
-//         zoom: 15,
-//         mapTypeId: google.maps.MapTypeId.ROADMAP
-//       }
-//       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-//     }, (err) => {
-//       console.log(err);
-//     });
-//   }
-//   addMarker(){
-//   let marker = new google.maps.Marker({
-//     map: this.map,
-//     animation: google.maps.Animation.DROP,
-//     position: this.map.getCenter()
-//   });
-//   let content = "<h4>Information!</h4>";
-//   this.addInfoWindow(marker, content);
-//
-// }
-//   addInfoWindow(marker, content){
-//     let infoWindow = new google.maps.InfoWindow({
-//       content: content
-//     });
-//     google.maps.event.addListener(marker, 'click', () => {
-//       infoWindow.open(this.map, marker);
-//     });
-//   }
+  loadMap(){
+    let options = {timeout: 10000, enableHighAccuracy: true};
+    Geolocation.getCurrentPosition(options).then((position) => {
+      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      let mapOptions = {
+        center: latLng,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      this.map = new google.maps.Map(document.querySelector("#map"), mapOptions);
+      var x = document.querySelector("#map");
+      console.log(x);
+    }, (err) => {
+      console.log(err);
+    });
+  }
+  addMarker(){
+  let marker = new google.maps.Marker({
+    map: this.map,
+    animation: google.maps.Animation.DROP,
+    position: this.map.getCenter()
+  });
+  let content = "<h4>Information!</h4>";
+  this.addInfoWindow(marker, content);
+
+}
+  addInfoWindow(marker, content){
+    let infoWindow = new google.maps.InfoWindow({
+      content: content
+    });
+    google.maps.event.addListener(marker, 'click', () => {
+      infoWindow.open(this.map, marker);
+    });
+  }
   takePicture(){
     Camera.getPicture({
         destinationType: Camera.DestinationType.DATA_URL,
